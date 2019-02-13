@@ -1,4 +1,4 @@
-import pandas as pd
+from pandas import DataFrame as df
 from MiDataFrame.dao.DatosD import DatosD
 
 class generarDataFrame():
@@ -9,8 +9,8 @@ class generarDataFrame():
 
     def desdeMiDB(self,consulta:str):
         self.datos.setQuery(consulta)
-        return pd.DataFrame.from_dict(self.datos.accion())
+        return df.from_dict(self.datos.accion())
 
     def desdeUrl(self, url:str):
         import requests
-        return pd.DataFrame.from_dict(requests.get(url).json())
+        return df.from_dict(requests.get(url).json())
